@@ -57,5 +57,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SureMdm\SureMdm.csproj">
+      <Project>{b548d8f8-c714-4f1d-8da5-66cfdaa37120}</Project>
+      <Name>SureMdm</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

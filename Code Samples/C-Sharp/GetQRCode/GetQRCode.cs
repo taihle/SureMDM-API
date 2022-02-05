@@ -5,16 +5,10 @@ using RestSharp.Authenticators;
 using System;
 using System.IO;
 using System.Net;
+using SureMdm;
 
 namespace GetQRCode
 {
-    static class Constants
-    {
-        public const string BaseURL = "https://suremdm.42gears.com/api";  // Your SureMDM domain
-        public const string Username = "Username"; // Your SureMDM username 
-        public const string Password = "Password"; // Your SureMDM password
-        public const string ApiKey = "Your ApiKey"; // Your SureMDM apikey
-    }
     class GetQRCode
     {
         static void Main(string[] args)
@@ -44,15 +38,8 @@ namespace GetQRCode
         // methos to get QRCode
         private static string GetQRCodeImage(string groupName)
         {
-            // API URL
-            string URL = Constants.BaseURL + "/QRCode/" + GetGroupID(groupName) + "/default/true/UseSystemGenerated";
-            var client = new RestClient(URL);
-            // Basic authentication header
-            client.Authenticator = new HttpBasicAuthenticator(Constants.Username, Constants.Password);
-            // ApiKey Header
-            client.AddDefaultHeader("ApiKey", Constants.ApiKey);
-            // Set content type
-            client.AddDefaultHeader("Content-Type", "application/json");
+            RestClient client = Helper.GetRestClient("/QRCode/" + Helper.GetGroupID(groupName) + "/default/true/UseSystemGenerated");
+ 
             // Set request method
             var request = new RestRequest(Method.GET);
             // Getting response
@@ -65,43 +52,5 @@ namespace GetQRCode
             return null;
         }
 
-        // method to get group ID
-        static string GetGroupID(string GroupName)
-        {
-            // For home group no need to get groupID
-            if (string.Equals(GroupName, "Home", StringComparison.InvariantCultureIgnoreCase))
-            {
-                return GroupName;
-            }
-
-
-            // API URL
-            string URL = Constants.BaseURL + "/group/1/getall";
-            var client = new RestClient(URL);
-            // Basic authentication header
-            client.Authenticator = new HttpBasicAuthenticator(Constants.Username, Constants.Password);
-            // ApiKey Header
-            client.AddDefaultHeader("ApiKey", Constants.ApiKey);
-            // Set content type
-            client.AddDefaultHeader("Content-Type", "application/json");
-            // Set request method
-            var request = new RestRequest(Method.GET);
-            // Getting response
-            IRestResponse response = client.Execute(request);
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var OutPut = JsonConvert.DeserializeObject<JObject>(response.Content);
-                foreach (var group in OutPut["Groups"])
-                {
-                    if ((string)group["GroupName"] == GroupName)
-                    {
-                        Console.WriteLine("hello " + group["GroupID"].ToString());
-                        return group["GroupID"].ToString();
-                    }
-                }
-            }
-            return null;
-        }
     }
 }

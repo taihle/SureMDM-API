@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplyJob", "ApplyJob\ApplyJob.csproj", "{514FDC9A-05AB-4A2D-98F5-1BC57E99BDEF}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetQRCode", "GetQRCode\GetQRCode.csproj", "{501DC1CF-D990-495B-8EA6-38FEDAFC12D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteSupport", "RemoteSupport\RemoteSupport.csproj", "{6FC6FF96-0676-49BC-ABFF-57E5185BB01D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SureMdm", "SureMdm\SureMdm.csproj", "{B548D8F8-C714-4F1D-8DA5-66CFDAA37120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{6FC6FF96-0676-49BC-ABFF-57E5185BB01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC6FF96-0676-49BC-ABFF-57E5185BB01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC6FF96-0676-49BC-ABFF-57E5185BB01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B548D8F8-C714-4F1D-8DA5-66CFDAA37120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B548D8F8-C714-4F1D-8DA5-66CFDAA37120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B548D8F8-C714-4F1D-8DA5-66CFDAA37120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B548D8F8-C714-4F1D-8DA5-66CFDAA37120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
